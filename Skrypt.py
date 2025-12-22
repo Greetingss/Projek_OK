@@ -170,7 +170,7 @@ def continuous_metaheuristic_integral_graph(n, k, T_start=1.0, alpha=0.995, stag
 n = int(sys.argv[1])
 k = int(sys.argv[2])
 
-file_hash = "best_graph_hash_"+str(n)+"_"+str(k)+".txt"
+file_hash = "best_graph_graph6_"+str(n)+"_"+str(k)+".txt"
 file_all = "best_graph_"+str(n)+"_"+str(k)+".txt"
 
 saved_graph6 = set()
