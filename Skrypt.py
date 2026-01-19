@@ -146,7 +146,7 @@ def search(n, k, t, T_start=1.0, alpha=0.995, stagnation_limit=500):
                         saved_graph6.add(g6)
                         with open(file_hash, "a") as f:
                             f.write(g6+'\n')
-                            cmd = f"./nauty2_8_9/labelg {file_hash} | sort | uniq | tee final_{file_hash}.txt"
+                            cmd = f"./nauty2_8_9/labelg {file_hash} | sort | uniq | tee final_{file_hash}"
                             subprocess.run(cmd, shell=True, check=True)
  
                 break
