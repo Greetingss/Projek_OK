@@ -166,6 +166,6 @@ try:
         for line in f:
             saved_graph6.add(line.strip())
 except FileNotFoundError:
-    pass
+    open("best_graph_graph6_"+str(n)+"_"+str(k)+".txt", "x").close()
  
 search(n, k, t)
