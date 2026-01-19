@@ -7,10 +7,10 @@ import time
 import subprocess
 
  
-def generate_random_greedy_connected_graph(n, k):
+def generate_graph(n, k):
  
     if k < n-1 or k > n*(n-1)//2:
-        raise ValueError("Nieprawidłowa liczba krawędzi dla spójnego grafu")
+        raise ValueError("Nieprawidłowa liczba krawędzi")
  
     G = nx.Graph()
     G.add_nodes_from(range(n))
@@ -76,14 +76,14 @@ def random_graph_neighbor(G):
  
     return G2
  
-def continuous_metaheuristic_integral_graph(n, k, t, T_start=1.0, alpha=0.995, stagnation_limit=500):
+def search(n, k, t, T_start=1.0, alpha=0.995, stagnation_limit=500):
     st = time.time()
 
     while True:
         if t is not None and time.time() - st > t:
             print(f"\nPrzekroczono limit czasu {t} sekund. Kończę działanie.")
             return 
-        G = generate_random_greedy_connected_graph(n, k)
+        G = generate_graph(n, k)
         best_G = G.copy()
         cost = integral_cost(G)
         best_cost = cost
@@ -168,5 +168,4 @@ try:
 except FileNotFoundError:
     pass
  
-continuous_metaheuristic_integral_graph(n, k, t)
-
+search(n, k, t)
